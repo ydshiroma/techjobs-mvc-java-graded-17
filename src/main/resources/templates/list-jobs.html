@@ -11,6 +11,59 @@
   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
+<!--  loop: display each job passed in from the controller
+job data should be presented in tables
+each job in its own table
+check in ListController to find the variable names available to the template.-->
+
+<!--  loop through list of all jobs passed by controller-->
+<!--  within that, loop through individual fields in each job object-->
+<!--  allJobs is an ArrayList of jobs-->
+<!--  each Job is a Job object w name, positionType, etc-->
+<table class="job-listing" th:each="job : ${jobs}">
+    <tr>
+      <td>
+        ID
+      </td>
+      <td th:text="${job.id}">
+      </td>
+    </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td th:text="${job.name}">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Employer
+    </td>
+    <td th:text="${job.employer}">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Location
+    </td>
+    <td th:text="${job.location}">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Position Type
+    </td>
+    <td th:text="${job.positionType}">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Skill
+    </td>
+    <td th:text="${job.coreCompetency}">
+    </td>
+  </tr>
+</table>
 
 </div>
 
