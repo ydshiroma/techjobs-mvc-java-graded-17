@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  * Created by LaunchCode
@@ -58,6 +59,15 @@ public class ListController {
             model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
         }
         model.addAttribute("jobs", jobs);
+
+        LinkedHashMap<String, String> rowLabels = new LinkedHashMap<>();
+        rowLabels.put("id", "ID");
+        rowLabels.put("name", "Name");
+        rowLabels.put("employer", "Employer");
+        rowLabels.put("location", "Location");
+        rowLabels.put("positionType", "Position Type");
+        rowLabels.put("coreCompetency", "Skill");
+        model.addAttribute("rowLabels", rowLabels);
 
         return "list-jobs";
     }
