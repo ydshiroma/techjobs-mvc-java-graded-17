@@ -25,6 +25,7 @@ public class SearchController {
     @GetMapping(value = "")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("buttonChecked", "all");
         return "search";
     }
 
@@ -36,9 +37,11 @@ public class SearchController {
         if (searchTerm.equals("all") || isNull(searchTerm)){
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
+            model.addAttribute("buttonChecked", "all");
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
             model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
+            model.addAttribute("buttonChecked", searchType);
         }
 
         model.addAttribute("jobs", jobs);
