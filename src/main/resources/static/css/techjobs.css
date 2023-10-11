@@ -32,11 +32,13 @@ table.job-listing {
 table.job-listing td:first-child {
     font-weight: bold;
     color: purple;
-    font-variant: small-caps;
+    font-family: Luminari, fantasy;
 }
 
 table.job-listing td:last-child {
     width: 80%;
+    color: #FF1493;
+    font-variant: small-caps;
 }
 
 label {
