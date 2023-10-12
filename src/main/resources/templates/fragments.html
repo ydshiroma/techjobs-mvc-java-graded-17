@@ -29,6 +29,19 @@
 </div>
 
 <table th:fragment="displayJobs" class="job-listing" th:each="job : ${jobs}">
+    <tr th:each="row : ${rowLabels}">
+      <td th:text="${row.value}">
+      </td>
+        <td th:if="${row.key == 'id' or row.key == 'name'}" th:text="${job[row.key]}">
+        </td>
+      <td th:unless="${row.key == 'id' or row.key == 'name'}">
+          <a th:href="@{/list/jobs(column=${row.key},value=${job[row.key]})}" th:text="${job[row.key]}"></a>
+      </td>
+    </tr>
+</table>
+
+
+<table th:fragment="displayJobs2" class="job-listing" th:each="job : ${jobs}">
         <tr>
           <td>
             ID

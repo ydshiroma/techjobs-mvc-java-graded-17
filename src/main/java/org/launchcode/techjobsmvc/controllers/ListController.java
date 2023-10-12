@@ -31,7 +31,6 @@ public class ListController extends TechJobsController {
 
     @GetMapping(value = "")
     public String list(Model model) {
-//        model.addAttribute("columns", columnChoices);
         model.addAttribute("tableChoices", tableChoices);
         model.addAttribute("employers", JobData.getAllEmployers());
         model.addAttribute("locations", JobData.getAllLocations());
@@ -52,15 +51,6 @@ public class ListController extends TechJobsController {
             model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
         }
         model.addAttribute("jobs", jobs);
-
-        LinkedHashMap<String, String> rowLabels = new LinkedHashMap<>();
-        rowLabels.put("id", "ID");
-        rowLabels.put("name", "Name");
-        rowLabels.put("employer", "Employer");
-        rowLabels.put("location", "Location");
-        rowLabels.put("positionType", "Position Type");
-        rowLabels.put("coreCompetency", "Skill");
-        model.addAttribute("rowLabels", rowLabels);
 
         return "list-jobs";
     }
